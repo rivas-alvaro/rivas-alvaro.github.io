@@ -10,6 +10,10 @@
     body { background: #f8fafc; margin: 0; }
     .logo { width: 12rem; }
 
+    input {
+      max-width: 390px;
+    }
+
     /* Rabbit hole text styling */
     #rabbit-text {
       max-width: 400px;
@@ -93,10 +97,14 @@
   </style>
 </head>
 <body class="flex flex-col items-center">
+  <!-- Logo and Search -->
   <a href="#"><img src="logo.png" onclick="location.reload();" alt="wikiloop logo" class="logo mt-6 mb-2" loading="lazy" /></a>
-  <h1 class="sr-only">wikiloop</h1>
-  <!-- Rabbit hole text -->
-  <div id="rabbit-text"></div>
+  <div class="w-full max-w-md px-4 mb-4" style="text-align: center;">
+    <input id="search-input" type="text" placeholder="Go down the rabbit hole!" 
+           class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+  </div>
+
+  <div id="rabbit-text"></span></div><div style="display: none;" id="rabbit-value"></div>
 
   <div id="articles" class="w-full"></div>
   <div id="sentinel" class="h-20"></div>
@@ -105,6 +113,8 @@
     const container = document.getElementById('articles');
     const sentinel = document.getElementById('sentinel');
     const rabbitText = document.getElementById('rabbit-text');
+    const rabbitValue = document.getElementById('rabbit-value');
+    const searchInput = document.getElementById('search-input');
     let rabbit = "";
 
     // Fetch random summary
@@ -133,20 +143,18 @@
       return data.query.search.map(item => item.title);
     }
 
-    // Load related articles and update rabbit hole text
-    async function loadRelated(baseTitle) {
+    // Search articles based on input
+    async function searchArticles(query) {
       container.innerHTML = '';
-      rabbitText.innerHTML = `Going down the rabbit hole of <strong>${baseTitle}</strong>`;
+      rabbitText.innerHTML = `Search results for <strong id="rabbit->${query}</strong>`;
+      rabbitValue.innerHTML = query;
+      rabbit = query;
       try {
-        const titles = await fetchRelatedTitles(baseTitle);
+        const titles = await fetchRelatedTitles(query);
         for (const t of titles) {
-          if (t == baseTitle)
-            continue;
           const art = await fetchSummaryByTitle(t);
           container.appendChild(createCard(art));
         }
-
-        rabbit = "";
       } catch (e) {
         console.error(e);
       }
@@ -208,7 +216,6 @@
       function addPlus() {
         const btn = document.createElement('button');
         btn.className = 'plus-btn';
-        //btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" width="1em" height="1em"><path d="M232.7 32c-25.6 0-46.4 17.5-51.4 42.5L128 288.7c-2.7 16.9 10 32.1 26.8 32.1H192v64c0 17.7 14.3 32 32 32s32-14.3 32-32V320h36.5c16.8 0 29.5-15.2 26.8-32.1L284.1 74.5C279.1 49.5 258.3 32 232.7 32z"/></svg>';
         btn.innerHTML = '+'
         btn.title = 'Load related';
         btn.addEventListener('click', e => {
@@ -224,24 +231,55 @@
       return card;
     }
 
-    async function addArticles(n = 5) {
-      if (rabbit.length > 0)
-        return;
+    // Load related articles (rabbit hole)
+    async function loadRelated(baseTitle) {
+      container.innerHTML = '';
+      rabbitText.innerHTML = `Going down the rabbit hole of <strong>${baseTitle}</strong>`;
+      rabbitValue.innerHTML = baseTitle;
+      rabbit = '';
+      try {
+        const titles = await fetchRelatedTitles(baseTitle);
+        for (const t of titles) {
+          if (t === baseTitle) continue;
+          const art = await fetchSummaryByTitle(t);
+          if (baseTitle == rabbitValue.innerHTML)
+              container.appendChild(createCard(art));
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
 
+    // Infinite scroll loader
+    async function addArticles(n = 5) {
       for (let i = 0; i < n; i++) {
         try {
           const art = await fetchRandomArticle();
+          if (rabbitValue.innerHTML.length > 0) return;
           container.appendChild(createCard(art));
+          console.log("Adding random article " + art.title + ". Rabbit: " + rabbit);
         } catch (e) {
           console.error(e);
         }
       }
     }
 
+    // Set up intersection observer
     new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) addArticles();
+      if (entries[0].isIntersecting) {
+        addArticles();
+      }
     }).observe(sentinel);
 
+    // Bind search
+    searchInput.addEventListener('keypress', e => {
+      if (e.key === 'Enter') {
+        rabbit = searchInput.value.trim();
+        loadRelated(searchInput.value.trim());
+    }
+    });
+
+    // Initial load
     addArticles();
   </script>
 </body>

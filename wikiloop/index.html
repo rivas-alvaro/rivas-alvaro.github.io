@@ -10,6 +10,7 @@
     body { background: #f8fafc; margin: 0; }
     .logo { width: 12rem; }
 
+
     input {
       max-width: 390px;
     }
@@ -38,6 +39,8 @@
 
     /* Hide unwanted elements */
     .pcs-collapse-table-container { display: none; }
+    .reference { display: none; }
+    .gallery { display: none; }
     .pcs-edit-section-link-container { display: none; }
     figure { display: none; }
 
@@ -148,6 +151,7 @@
       container.innerHTML = '';
       rabbitText.innerHTML = `Search results for <strong id="rabbit->${query}</strong>`;
       rabbitValue.innerHTML = query;
+      searchInput.value = query;
       rabbit = query;
       try {
         const titles = await fetchRelatedTitles(query);
@@ -236,6 +240,7 @@
       container.innerHTML = '';
       rabbitText.innerHTML = `Going down the rabbit hole of <strong>${baseTitle}</strong>`;
       rabbitValue.innerHTML = baseTitle;
+      searchInput.value = baseTitle;
       rabbit = '';
       try {
         const titles = await fetchRelatedTitles(baseTitle);

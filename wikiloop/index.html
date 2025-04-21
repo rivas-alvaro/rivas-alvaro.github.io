@@ -219,6 +219,7 @@
         document.body.style.overflow = 'hidden';
         card.dataset.prevHTML = card.innerHTML;
         card.classList.add('expanded');
+        history.pushState({ expanded: article.title }, '', '');
         card.innerHTML = `<div class="article-content"><p class="text-center text-gray-500">Loading full article…</p></div>`;
         addClose();
         addPlus();
@@ -321,6 +322,15 @@
         loadRelated(searchInput.value.trim());
     }
     });
+
+    window.addEventListener('popstate', () => {
+      // find any open card(s) and trigger their collapse
+      document.querySelectorAll('.article-card.expanded').forEach(card => {
+        // this will invoke your existing collapse logic
+        card.querySelector('.close-btn').click();
+      });
+    });
+
 
     // Initial load
     addArticles();

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>wikiloop – Infinite Wikipedia Scroll</title>
+  <!-- Tailwind via CDN for quick styling -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f8fafc;
+    }
+    .logo {
+      width: 250px; 
+    }
+    .article-card {
+      position: relative;
+      max-width: 400px;
+      max-height: 700px;
+      margin: 2rem auto;
+      cursor: pointer;
+      transition: height 0.35s ease, box-shadow 0.2s ease;
+    }
+    .article-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .preview-img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+    }
+    .article-card img {
+      max-width: 100%;
+      height: auto;
+    }
+    .article-card section,
+    .article-card details { display:block!important; }
+    .article-card .mw-collapsible-toggle { display:none!important; }
+    .close-btn {
+      position:absolute; top:0.5rem; right:0.75rem;
+      font-size:1.25rem; line-height:1rem; font-weight:600;
+      color:#4b5563; cursor:pointer; z-index:10;
+      transition:color .15s ease;
+    }
+      .close-btn:hover { color:#000; }
+
+    
+    .pcs-collapse-table-container { display: none; }
+    .pcs-edit-section-link-container { display: none; }
+
+  </style>
+</head>
+<body class="flex flex-col items-center">
+  <!-- Logo (place wikiloop_logo.png beside this HTML file) -->
+  <img src="logo.png" alt="wikiloop logo" class="logo mt-6 mb-2" loading="lazy" />
+  <h1 class="sr-only">wikiloop</h1>
+
+  <div id="articles" class="w-full"></div>
+  <div id="sentinel" class="h-20"></div>
+
+  <script>
+    const container = document.getElementById('articles');
+    const sentinel  = document.getElementById('sentinel');
+    const TARGET_H  = 700;
+    const PAD_Y     = 48;  // p-6 top+bottom
+
+    async function fetchRandomArticle() {
+      const res = await fetch('https://en.wikipedia.org/api/rest_v1/page/random/summary');
+      if (!res.ok) throw new Error('network');
+      const d = await res.json();
+      return { title:d.title, extract:d.extract, image:d.thumbnail?.source||d.originalimage?.source||null };
+    }
+
+    const absURLs = h=>h.replace(/\b(src|href)=("|')\/\/([^"']+)/g,'$1=$2https://$3');
+
+    async function fetchArticleHTML(title){
+      const api=`https://en.wikipedia.org/w/api.php?origin=*&action=parse&page=${encodeURIComponent(title)}&prop=text&formatversion=2&disableeditsection=true`;
+      try{
+        const r=await fetch(api); if(r.ok){const j=await r.json(); if(j?.parse?.text) return absURLs(j.parse.text);} }
+      catch{}
+      const mob=`https://en.wikipedia.org/api/rest_v1/page/mobile-html/${encodeURIComponent(title)}`;
+      const r2=await fetch(mob); if(!r2.ok) throw new Error('body'); return absURLs(await r2.text());
+    }
+
+    function createCard(article){
+      const card=document.createElement('article');
+      card.className='article-card flex flex-col bg-white shadow-lg rounded-2xl overflow-hidden';
+      const preview=`${article.image?`<img src="${article.image}" alt="${article.title}" class="preview-img" loading="lazy" />`:''}
+        <div class="p-6"><h2 class="text-2xl font-semibold mb-2">${article.title}</h2><p class="text-gray-700">${article.extract}</p></div>`;
+      card.innerHTML=preview;
+
+      const expand=async()=>{
+        card.style.cursor='default'; card.removeEventListener('click',expand);
+        const prevH=card.offsetHeight; card.dataset.prevH=prevH; card.style.height=prevH+'px'; void card.offsetHeight; card.style.height=TARGET_H+'px';
+        card.innerHTML=`<div class="article-content p-6 overflow-y-auto" style="height:${TARGET_H-PAD_Y}px"><p class="text-center text-gray-500">Loading full article…</p></div>`; addClose();
+        try{card.querySelector('.article-content').innerHTML=`<div class="prose max-w-none">${await fetchArticleHTML(article.title)}</div>`;}catch(e){console.error(e); card.querySelector('.article-content').innerHTML='<p class="text-red-600">Failed to load.</p>';}
+      };
+
+      function collapse(){
+        const prev=+card.dataset.prevH||card.offsetHeight; card.style.height=TARGET_H+'px'; void card.offsetHeight; card.style.height=prev+'px';
+        card.addEventListener('transitionend',function h(){card.removeEventListener('transitionend',h); card.innerHTML=preview; card.style.cursor='pointer'; card.style.height=''; card.addEventListener('click',expand,{once:true});});
+      }
+      function addClose(){
+        const btn=document.createElement('button'); btn.className='close-btn'; btn.innerHTML='&times;'; btn.title='Close'; btn.onclick=e=>{e.stopPropagation(); collapse();}; card.appendChild(btn);
+      }
+      card.addEventListener('click',expand,{once:true}); return card;
+    }
+
+    async function addArticles(n=5){ for(let i=0;i<n;i++){ try{container.appendChild(createCard(await fetchRandomArticle()));}catch(e){console.error(e);} } }
+    new IntersectionObserver(e=>{if(e[0].isIntersecting) addArticles();}).observe(sentinel);
+    addArticles();
+  </script>
+</body>
+</html>
+

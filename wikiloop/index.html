@@ -59,7 +59,7 @@
     .reference { display: none; }
     .gallery { display: none; }
     .pcs-edit-section-link-container { display: none; }
-    figure { display: none; }
+    /*figure { display: none; }*/
     .pcs-section-hideable-header { display: none; }
 
     /* Close button */
@@ -283,6 +283,25 @@
         fetchArticleHTML(article.title).then(html => {
           const contentEl = card.querySelector('.article-content');
           contentEl.innerHTML = `<div class="prose max-w-none">${html}</div>`;
+          contentEl
+              .querySelectorAll('span.pcs-lazy-load-placeholder')
+              .forEach(span => {
+                const src    = span.getAttribute('data-src');
+                const srcset = span.getAttribute('data-srcset');
+                const img    = document.createElement('img');
+                img.src      = src;
+                if (srcset) {
+                  // ensure protocol on srcset entries
+                  img.srcset = srcset.replace(/(^|,\s*)\/\//g, '$1https://');
+                }
+                // match your existing article‐content styles
+                img.style.display   = 'block';
+                img.style.maxWidth  = '100%';
+                img.style.height    = 'auto';
+                img.style.margin    = '1rem auto';
+                span.replaceWith(img);
+              });
+              
           contentEl.addEventListener('click', ev => {
             const link = ev.target.closest('a');
             if (link) {

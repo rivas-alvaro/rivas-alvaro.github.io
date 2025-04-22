@@ -6,6 +6,7 @@
   <title>wikiloop – Infinite Wikipedia Scroll</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet" />
   <style>
     body { background: #f8fafc; margin: 0; }
     .logo { width: 12rem; }
@@ -59,22 +60,28 @@
     }
     .close-btn:hover { color: #000; }
 
-    /* Rabbit button */
+    /* Plus button (styled like refresh) */
     .plus-btn {
-      position: absolute;
-      top: 0.5rem;
-      left: 0.75rem;
-      font-size: 1.75rem;
-      line-height: 1rem;
+      position: fixed;
+      bottom: calc(2rem + 3.5rem + 0.5rem);
+      right: 2rem;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 9999px;
+      background: #374151;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: background 0.2s ease;
+      z-index: 1100;
       cursor: pointer;
-      z-index: 1001;
-      transition: color 0.15s ease;
-      color: #4b5563;
-      background: none;
       border: none;
       padding: 0;
     }
-    .plus-btn:hover { color: #000; }
+    .plus-btn:hover { background: #1f2937; }
 
     /* Expanded: full-screen overlay with fixed width */
     .article-card.expanded {
@@ -101,24 +108,22 @@
     /* Floating refresh button */
     .refresh-btn {
       position: fixed;
-      bottom: 2rem; /* ~32px */
-      right: 2rem;  /* ~32px */
-      width: 3.5rem; /* 56px */
-      height: 3.5rem; /* 56px */
-      border-radius: 9999px; /* fully rounded */
-      background: #374151; /* gray-700 */
+      bottom: 2rem;
+      right: 2rem;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 9999px;
+      background: #374151;
       color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem; /* icon size */
+      font-size: 1.5rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       transition: background 0.2s ease;
-      z-index: 1100; /* above cards */
+      z-index: 1100;
     }
-    .refresh-btn:hover {
-      background: #1f2937; /* gray-800 */
-    }
+    .refresh-btn:hover { background: #1f2937; }
   </style>
 </head>
 <body class="flex flex-col items-center">
@@ -127,6 +132,7 @@
   <div class="w-full max-w-md px-4 mb-4" style="text-align: center;">
     <input id="search-input" type="text" placeholder="Go down the rabbit hole!"
            class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+   <span class="mdi mdi-rabbit invisible absolute -z-10"></span>
   </div>
 
   <div id="rabbit-text">Go down the rabbit hole of Wikipedia articles</div><div style="display: none;" id="rabbit-value"></div>
@@ -136,7 +142,7 @@
 
   <!-- Floating Refresh Button -->
   <button id="refresh-btn" class="refresh-btn" title="Refresh page" aria-label="Refresh" onclick="location.reload()">
-    <i class="fas fa-sync-alt"></i>
+    <i class="fas fa-dice-six"></i>
   </button>
 
   <script>
@@ -147,7 +153,6 @@
     const searchInput = document.getElementById('search-input');
     let rabbit = "";
 
-    // Fetch random summary
     async function fetchRandomArticle() {
       const res = await fetch('https://en.wikipedia.org/api/rest_v1/page/random/summary');
       if (!res.ok) throw new Error('Network error');
@@ -155,7 +160,6 @@
       return { title: data.title, extract: data.extract, image: data.thumbnail?.source || data.originalimage?.source || null };
     }
 
-    // Fetch summary by title
     async function fetchSummaryByTitle(title) {
       const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`;
       const res = await fetch(url);
@@ -164,7 +168,6 @@
       return { title: data.title, extract: data.extract, image: data.thumbnail?.source || data.originalimage?.source || null };
     }
 
-    // Fetch related article titles
     async function fetchRelatedTitles(title, limit = 25) {
       const api = `https://en.wikipedia.org/w/api.php?origin=*&action=query&list=search&srsearch=${encodeURIComponent(title)}&srlimit=${limit}&format=json`;
       const res = await fetch(api);
@@ -173,7 +176,6 @@
       return data.query.search.map(item => item.title);
     }
 
-    // Search articles based on input
     async function searchArticles(query) {
       container.innerHTML = '';
       rabbitText.innerHTML = `Search results for <strong id="rabbit->${query}</strong>`;
@@ -193,7 +195,6 @@
 
     const absURLs = html => html.replace(/\b(src|href)=(['"])\/\//g, `$1=$2https://`);
 
-    // Fetch full HTML of article
     async function fetchArticleHTML(title) {
       const api = `https://en.wikipedia.org/w/api.php?origin=*&action=parse&page=${encodeURIComponent(title)}&prop=text&formatversion=2&disableeditsection=true`;
       try {
@@ -227,8 +228,6 @@
         fetchArticleHTML(article.title).then(html => {
           const contentEl = card.querySelector('.article-content');
           contentEl.innerHTML = `<div class="prose max-w-none">${html}</div>`;
-
-          /* 🔗 Intercept link clicks inside article */
           contentEl.addEventListener('click', ev => {
             const link = ev.target.closest('a');
             if (link) {
@@ -238,7 +237,7 @@
               loadRelated(link.textContent.trim() || link.href);
             }
           });
-        }).catch(() => card.querySelector('.article-content').innerHTML = '<p class="text-red-600">Failed to load.</p>');          
+        }).catch(() => card.querySelector('.article-content').innerHTML = '<p class="text-red-600">Failed to load.</p>');
       }
 
       function collapse() {
@@ -260,7 +259,7 @@
       function addPlus() {
         const btn = document.createElement('button');
         btn.className = 'plus-btn';
-        btn.innerHTML = '+'
+        btn.innerHTML = '<i class="mdi mdi-rabbit"></i>';
         btn.title = 'Load related';
         btn.addEventListener('click', e => {
           e.stopPropagation();
@@ -275,7 +274,6 @@
       return card;
     }
 
-    // Load related articles (rabbit hole)
     async function loadRelated(baseTitle, includeTitle=true) {
       container.innerHTML = '';
       rabbitText.innerHTML = `Going down the rabbit hole of <strong>${baseTitle}</strong>`;
@@ -295,7 +293,6 @@
       }
     }
 
-    // Infinite scroll loader
     async function addArticles(n = 5) {
       for (let i = 0; i < n; i++) {
         try {
@@ -309,14 +306,12 @@
       }
     }
 
-    // Set up intersection observer
     new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
         addArticles();
       }
     }).observe(sentinel);
 
-    // Bind search
     searchInput.addEventListener('keypress', e => {
       if (e.key === 'Enter') {
         rabbit = searchInput.value.trim();
@@ -325,15 +320,11 @@
     });
 
     window.addEventListener('popstate', () => {
-      // find any open card(s) and trigger their collapse
       document.querySelectorAll('.article-card.expanded').forEach(card => {
-        // this will invoke your existing collapse logic
         card.querySelector('.close-btn').click();
       });
     });
 
-
-    // Initial load
     addArticles();
   </script>
 </body>

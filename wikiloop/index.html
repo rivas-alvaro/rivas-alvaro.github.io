@@ -3,13 +3,30 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>wikiloop – Infinite Wikipedia Scroll</title>
+  <title>Wikiloop – Infinite Wikipedia Scroll</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet" />
   <style>
     body { background: #f8fafc; margin: 0; }
-    .logo { width: 12rem; }
+    .logo { width: 14rem; }
+
+    #info-btn {
+      background: #374151;
+      transition: background 0.2s ease;
+    }
+    #info-btn:hover {
+      background: #1f2937;
+    }
+
+    #info-modal p {
+        margin-bottom: 15px;
+    }
+
+    #info-modal a {
+        text-decoration: underline;
+    }
+
 
     input {
       max-width: 390px;
@@ -145,12 +162,50 @@
     <i class="fas fa-dice-six"></i>
   </button>
 
+  <button id="info-btn" class="absolute top-4 right-4 w-10 h-10 text-white rounded-full shadow-lg flex items-center justify-center z-1100" aria-label="Info">
+    <i class="fas fa-info"></i>
+  </button>
+
+<!-- full‐page overlay -->
+<div id="info-modal" class="fixed inset-0 bg-white hidden z-10000 overflow-auto p-6">
+  <button id="info-close" class="absolute top-4 right-4 text-2xl font-bold text-gray-600 hover:text-gray-900">
+    &times;
+  </button>
+  <div class="mt-12 max-w-2xl mx-auto text-gray-700">
+    <h1 class="text-3xl font-semibold mb-4">Wikiloop</h1>
+  <p>
+    Ever clicked one link on Wikipedia, only to find yourself 20 tabs deep in something totally unexpected? Welcome to
+    Wikiloop, your doorway to your next rabbit hole! We’ve stripped away distractions so you can chase every tangent,
+    follow every rabbit hole, and discover connections you never knew existed.
+  </p>
+  <p>
+  <ul class="list-disc list-inside">
+    <li><strong>Endless Scroll</strong> – Keep reading: you’ll just keep seeing new articles slide in as you go.</li> 
+    <li><strong>Search Made Simple</strong> – Type what you’re curious about and find matching articles right away.</li>
+    <li><strong>Rabbit Button</strong> – Tap the rabbit icon anytime to spark off a fresh batch of related stories.</li>
+    <li><strong>Built for Any Device</strong> – Whether it’s phone or desktop, expect smooth browsing every time.</li>
+    <li><strong>Stay in the Groove</strong> – No footnotes or edit links to distract you—just pure discovery.</li>
+  </ul>
+  </p>
+  <p>
+    Whether you’re a curious student, a lifelong learner, or just looking for an afternoon adventure, Wikiloop turns
+    every click into a new discovery. Ready to see where your next rabbit hole leads? Close this page and start looping!
+  </p>
+  <p class="text-sm text-gray-500">
+    Built by <a target="_blank" href="https://rivas-alvaro.github.io/">Alvaro Rivas</a>
+  </p>  
+  </div>
+</div>  
+
   <script>
     const container = document.getElementById('articles');
     const sentinel = document.getElementById('sentinel');
     const rabbitText = document.getElementById('rabbit-text');
     const rabbitValue = document.getElementById('rabbit-value');
     const searchInput = document.getElementById('search-input');
+    const infoBtn   = document.getElementById('info-btn');
+    const infoModal = document.getElementById('info-modal');
+    const infoClose = document.getElementById('info-close');
     let rabbit = "";
 
     async function fetchRandomArticle() {
@@ -326,6 +381,51 @@
     });
 
     addArticles();
+
+// open modal
+infoBtn.addEventListener('click', e => {
+  e.stopPropagation();
+  document.body.style.overflow = 'hidden';  // prevent background scroll
+  infoModal.classList.remove('hidden');
+  history.pushState({ infoOpen: true }, '', '');
+});
+
+// close modal
+infoClose.addEventListener('click', e => {
+  e.stopPropagation();
+  document.body.style.overflow = '';
+  infoModal.classList.add('hidden');
+  if (history.state && history.state.infoOpen) history.back();
+});
+
+// also close if you click outside the content
+infoModal.addEventListener('click', e => {
+  if (e.target === infoModal) {
+    document.body.style.overflow = '';
+    infoModal.classList.add('hidden');
+    if (history.state && history.state.infoOpen) history.back();
+  }
+});
+
+function closeInfoModal() {
+  document.body.style.overflow = '';
+  infoModal.classList.add('hidden');
+}
+
+// if user presses “back” while info is open, close it
+window.addEventListener('popstate', e => {
+  // first handle Info modal
+  if (infoModal.classList.contains('hidden') === false) {
+    closeInfoModal();
+    return;
+  }
+  // then your existing popstate logic for articles:
+  document.querySelectorAll('.article-card.expanded').forEach(card => {
+    card.querySelector('.close-btn').click();
+  });
+});
+
+
   </script>
 </body>
 </html>

@@ -1,0 +1,287 @@
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fdfdfd;
+}
+
+header {
+    padding: 40px 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+h1 a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3 ease;
+}
+
+h1 a:hover {
+    color: #000;
+}
+
+nav {
+    margin: 20px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+@media (max-width: 700px) {
+    nav ul{
+        gap: 30px;
+    }
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3 ease;
+}
+
+nav a:hover, nav a.active {
+    color: #000;
+}
+
+main {
+    min-height: 400px;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+h2 {
+    font-weight: 400;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #999;
+    font-size: 0.9rem;
+    border-top: 1px solid #eee;
+    margin-top: 60px;
+}
+
+.item {
+    margin-bottom: 30px;
+}
+
+.item h3 {
+    margin-bottom: 5px;
+}
+
+.item p {
+    margin-top: 5px;
+    color: #666;
+}
+
+/* Essays */
+
+.date {
+    color: #999;
+    text-transform: uppercase;
+}
+
+.quote {
+    padding: 0 50px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.essay-item {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.essay-date {
+    color: #aaa;
+    min-width: 100px;
+    flex-shrink: 0;
+    text-transform: uppercase;
+}
+
+.essay-title {
+    font-weight: 500;
+}
+
+.essay-title a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.2s ease;
+}
+
+.essay-title a:hover {
+    color: #666;
+}
+
+/* Projects */
+
+.project-item {
+    display: flex;
+    margin-bottom: 40px;
+    gap: 20px;
+}
+
+.project-image {
+    flex-shrink: 0;
+    width: 50%;
+}
+
+.project-image img {
+    width: 100%;
+    background-color: #eee;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 700px) {
+/*
+    .project-image {
+        width: 820px;
+    }
+*/
+}
+
+@media (max-width: 700px) {
+    .project-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-info {
+        margin-top: 15px;
+    }
+
+    .project-image {
+        width: 80%;
+    }
+}
+
+.project-info {
+    flex-grow: 1;
+}
+
+.project-title {
+    font-weight: 500;
+    margin 0 0 10px 0;
+}
+
+.project-description {
+    color: #555;
+    margin: 0;
+}
+
+.project-info h2 {
+    border: none;
+}
+
+/* Books */
+
+.book-item {
+    display: flex;
+    margin-bottom: 40px;
+    gap: 20px;
+}
+
+.book-upcoming {
+    margin: 20px auto;
+}
+
+.book-upcoming span {
+    background: #141414;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: default;
+}
+
+.book-cover {
+    flex-shrink: 0;
+    width: 80%;
+}
+
+.book-cover img {
+    width: 100%;
+    background-color: #eee;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 700px) {
+    .book-cover {
+        width: 320px;
+    }
+}
+
+@media (max-width: 700px) {
+    .book-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-info {
+        margin-top: 15px;
+    }
+}
+
+.book-info {
+    flex-grow: 1;
+}
+
+.book-title {
+    font-weight: 500;
+    margin 0 0 10px 0;
+}
+
+.book-description {
+    color: #555;
+    margin: 0;
+}
+
+/* Footnote */
+
+.footnote-number {
+    font-weight: 750;
+    font-size: 0.75rem;
+}
+
+main a {
+    font-weight: 500;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3 ease;
+}
+
+main a:hover {
+    color: #000;
+}
+
+/* Bibliography */
+
+bib-author {
+    font-variant: small-caps;
+}

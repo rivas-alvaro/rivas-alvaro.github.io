@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alvaro Rivas</title>
+        <link rel="stylesheet" href="../css/style.css">
+        
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+
+    </head>
+    <body>
+        <header>
+            <h1><a href="../">Alvaro Rivas</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="../" class="li-home">HOME</a></li>
+                    <li><a href="../books/" class="li-books">BOOKS</a></li>
+                    <li><a href="../essays" class="active">ESSAYS</a></li>
+                    <li><a href="../projects" class="li-projects">SIDE PROJECTS</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <h2 id="page-title">On maximal systems of rights </h2>
+                
+                <p class="date">15 Apr 2025</p>
+
+<p><a target="_blank" href="../assets/maximalrights.pdf">Read PDF version</a></p>
+
+<h3>Introduction</h3>
+
+<p>What rights persons have is a much debated issue in moral and political philosophy. Many schools of thought believe that persons do enjoy certain rights, although there might be disagreement about what these rights are. Despite their differences and caveats, many authors of a liberal or libertarian background have two principles in common in essence: that more rights is preferred to less, and that every person ought to enjoy equal rights. Therefore, it is natural to view that persons ought to enjoy the most extensive system of rights that is logically possible, and compatible with all other persons enjoying the same system of rights. This view is not new. In his <i>A Theory of Justice</i>, John Rawls incorporated this idea into his first principle of justice:</p>
+
+<p><div class="quote">
+    Each person is to have an equal right to the most extensive total system of equal basic liberties compatible with a similar system of liberty for all.<sup class='footnote-number'><a href='#footnote-1'>1</a></sup>
+</div></p>
+
+<p>G. A. Cohen too explored this idea in his study of the notion of self-ownership. He defined self-ownership as</p>
+
+<p><div class="quote">
+    [...] the stipulation that self-ownership confers the fullest right a person (logically) can have over herself provided that each other person also has just such a right. That statement generates a procedure for determining the concept of self-ownership. Determinacy might be achieved through the identification of a set of rights \(S\) which is such that every person can have them over herself and where \(S\) confers fuller rights over herself than any other set of universally enjoyable rights does.<sup class='footnote-number'><a href='#footnote-2'>2</a></sup>
+</div></p>
+
+<p>Unlike Rawls, Cohen is not maximising over all <i>basic rights</i>. He is maximising over a special type of rights: rights a person can have <i>over herself</i>. These rights are ownership rights, not unlike the ownership rights one can have over a chair, a car or a house:</p>
+
+<p><div class="quote">
+    [W]e are not looking for universal maximal rights, <i>tout court</i>, but universal maximal rights of <i>ownership</i>. [...] This is but an elementary application to self-ownership of what we would say about private property in things.<sup class='footnote-number'><a href='#footnote-3'>3</a></sup>
+</div></p>
+
+<p>Cohen's view of property (and, by extension, self-ownership) follows Honoré's conception of ownership as a bundle of rights<sup class='footnote-number'><a href='#footnote-4'>4</a></sup>. Honoré viewed ownership over a physical object as a collection of rights a person (the owner) has over it. Moreover, he gave an exhaustive list of all rights that, he believed, form the bundle of rights that defines ownership.</p>
+
+<p>At first glance, these property rights might appear to be between a person (the owner) and an object (that which is owned). This is not so, as objects cannot have rights or duties: only people can. According to J. Waldron:</p>
+
+<p><div class="quote">
+    Consider the relation between a person (call her Susan) and an object (say, a motor car) generally taken to be her private property. The layman thinks of this as a two-place relation of ownership between a person and a thing: Susan owns a Porsche. But the lawyer tells us that legal relations cannot exist between people and Porsches, because Porsches cannot have rights or duties or be bound by or recognize rules. The legal relation involved must be a relation between persons &mdash; between Susan and her neighbours, say, or Susan and the police, or Susan and everyone else.<sup class='footnote-number'><a href='#footnote-5'>5</a></sup>
+</div></p>
+
+<p>Therefore, Honoré's property rights (and consequently Cohen's self-ownership definition) consist of relations between the owner and other people &mdash; relations that happen to make reference to an object. Where both authors's approaches differ is in how the bundle of rights that forms ownership is constructed: while Honoré characterises the bundle of rights by giving a full, exhaustive list of property rights, Cohen defines self-ownership as the most extensive of all logically possible bundles of property rights.</p>
+
+<p>Although it is natural to consider such maximum systems of rights, it is not clear that Rawls's and Cohen's use of them make logical sense, in that it is not obvious that they are well-defined. Both authors start from a set of possible systems of rights. In the case of Rawls, this is the set of all systems of “equal basic liberties compatible with a similar system of liberty for all”; for Cohen, this is the set of all rights a “person (logically) can have over herself provided that each other person also has such a right.” I will denote this set of systems of rights \(\mathcal S\), which I will precisely define in a later section.</p>
+
+<p>Then, both Rawls and Cohen make the following assumptions<sup class='footnote-number'><a href='#footnote-6'>6</a></sup>:</p>
+
+<p><b>(a)</b> Given two systems \(S_1, S_2 \in \mathcal S\), either \(S_1\) is more extensive than \(S_2\), or \(S_2\) is more extensive than \(S_1\).</p>
+
+<p><b>(b)</b> There is a system \(S\in \mathcal S\) that is more extensive than any other system in \(\mathcal S\).</p>
+
+<p></p>
+
+<p>In this article, I will show that neither assumption (a) or (b) is true. I will start by introducing a formal logical definition of what the set of systems of rights \(\mathcal S\) is. Intuitively, this consists of all systems of rights that are logically possible while admitting equal rights to all persons. The article follows by defining what I mean by a system being more extensive than another. This introduces an order relation in \(\mathcal S\). However, this order is not a <i>total order</i>: not every two systems in \(\mathcal S\) are comparable. In other words, there are systems \(S_1, S_2\in \mathcal S\) such that \(S_1\) is not more extensive than \(S_2\), and \(S_2\) is not more extensive than \(S_1\). Then, I will show that although \(\mathcal S\) has a maximal system (that is, a system such that no other system is more extensive than it), it doesn't have a maximum system (a system that is more extensive than any other). Moreover, this maximal system is not unique either.</p>
+
+<p>I do not believe these objections are fatal to the aims of Rawls, Cohen and other authors that have pre-assumed the existence of a maximum system of rights, one that is more extensive than any other. Nevertheless, they do make their claims more logically precise, and I do believe they have implications to their theories that should be considered. I explore some of these implications in the last section. </p>
+
+<p>
+<h3>Systems of rights</h3></p>
+
+<p>The concept of <i>right</i> is often used ambiguously, and different people attach different meanings to it without explicitly explaining what they mean by <i>right</i>. In this article I will use<sup class='footnote-number'><a href='#footnote-7'>7</a></sup> W.N. Hohfeld's<sup class='footnote-number'><a href='#footnote-8'>8</a></sup> two meanings of rights: liberties and claim-rights.<sup class='footnote-number'><a href='#footnote-9'>9</a></sup></p>
+
+<p>A person \(P\) is said to have a claim-right against a person \(Q\) to \(\varphi\) if \(Q\) has a duty to \(P\) to \(\varphi\). Claim-rights are, in this sense, triplets \((P, Q, \varphi)\) where \(P, Q\) are persons and \(\varphi\) is an action.</p>
+
+<p>For example, if John has a claim-right against Mary to paint his house, then Mary has a duty to John according to which she has to paint his house &mdash; a claim-right that might arise as a result of a contract, for example. Another example is my claim-right not to get murdered. This is a claim-right I have against all persons, which imposes a duty on all persons not to murder me.</p>
+
+<p>In this article I will denote by \((P, Q, \varphi)\)-claim-right the claim-right that \(P\) has against \(Q\) according to which \(Q\) has a duty to \(P\) to do \(\varphi\).</p>
+
+<p>If claim-rights are characterised by the existence of certain duties, Hohfeldian liberties are characterised by their <i>absence</i>. A person \(P\) is said to have the liberty to \(\varphi\) if \(P\) has no duty not to \(\varphi\). When I say I have the right (in the sense of Hohfeld's liberty) to dye my hair pink, for instance, I mean that I have no duty not to dye my hair pink. I will denote by \((P, \varphi)\)-liberty the Hohfeldian liberty that \(P\) has to \(\varphi\).</p>
+
+<p>A system of rights is any set \(S\) that consists of \((P, Q, \varphi)\)-claim-rights and \((P, \varphi)\)-liberties, for persons \(P, Q\) and actions \(\varphi\). In what follows, I will simply use the generic term <i>right</i> to refer to either claim-rights or Hohfeldian liberties.</p>
+
+<p>A system of rights \(S\) is said to be <i>universal</i> if:</p>
+
+<p><b>(C1)</b> For each \((P, Q, \varphi)\)-claim-right in \(S\), the system \(S\) also contains the \((P', Q, \varphi)\)-claim-right for all persons \(P'\).</p>
+
+<p><b>(C2)</b> For each \((P, \varphi)\)-liberty in \(S\), the system \(S\) also contains the \((P', \varphi)\)-liberty for all persons \(P'\).</p>
+
+<p><b>(C3)</b> Any two rights in \(S\) are logically compatible.</p>
+
+<p>These conditions capture the idea that a system of rights should be “compatible with a similar system” for all persons, as John Rawls put it<sup class='footnote-number'><a href='#footnote-10'>10</a></sup>. The first two conditions ensure that all persons enjoy equal rights: if a universal system of rights grants me the right not to get murdered, it must grant all other persons the right not to get murdered too. The third condition ensures that no rights are logically incompatible with each other. Two rights are said to be logically incompatible if they entail duties, or absence of duties, that logically contradict each other. For example, a universal system of rights cannot simultaneously admit the claim-right not to get assaulted and the Hohfeldian liberty to punch someone on the face, as both rights are logically incompatible with each other.</p>
+
+<p>In Hare's framework of two levels of moral thinking, universal systems of rights (thus defined) this paper considers are at the level of critical thinking<sup class='footnote-number'><a href='#footnote-11'>11</a></sup>. According to Hare, this level of moral reasoning “consists of making a choice under the constraints imposed by the logical properties of the moral concepts and by the non-moral facts, and nothing else.”<sup class='footnote-number'><a href='#footnote-12'>12</a></sup> This contrasts with certain prima facie rights that allow some logical contradictions with each other, which are then resolved using alternative criteria &mdash; these are at the intuitive level<sup class='footnote-number'><a href='#footnote-13'>13</a></sup>. These prima facie rights are not included in this paper's framework.</p>
+
+<p>
+As an example, consider the system of rights that grants each person the right not to get murdered. This system consists of \((P, Q, \varphi)\)-claim-rights for all persons \(P\), \(Q\) and where \(\varphi\) is given by <i>not to murder</i>. It is clear that this system of rights satisfies conditions (C1), (C2) and (C3) and is, therefore, universal.</p>
+
+<p>Not every right is universal, in the above sense. Rights arising from certain contingent events, such as those that result from contracts between two persons, are not universal. Neither are rights recognised exclusively to only one person (such as a monarch or a dictator) or part of society (a religious group, those belonging to a certain race, etc). This paper is not concerned with such rights.</p>
+
+<p>I will denote by \(\mathcal S\) the set of all systems of rights that are universal. In the following sections I will explore how systems of rights in \(\mathcal S\) relate to each other.</p>
+
+<h3>Comparing systems of rights</h3>
+
+<p>If we want to discuss the existence of the <i>fullest</i> or <i>most extensive</i> system of rights, we should first be able to compare two systems of rights. Given two systems of rights \(S_1, S_2 \in \mathcal S\), the system \(S_2\) is said to be more <i>extensive</i> than \(S_1\), and denote it by \(S_1 \preceq S_2\), if any \((P, Q, \varphi)\)-claim-right and \((P, \varphi)\)-liberty under the system \(S_1\) is also a right under the system \(S_2\).</p>
+
+<p>For example, let \(S_1\) be the system of only one right: the claim-right to take part in political demonstrations. According to this right, people have the duty not to impede other people from taking part in political demonstrations.  Let \(S_2\) be the system of rights consisting of two claim-rights: the right to freedom of speech and the freedom of assembly &mdash; which again impose negative duties on others. Under the system \(S_1\), a person can attend a political demonstration without interference from others. This is possible under the system \(S_2\), too: it follows from the freedom of speech and the freedom of assembly that a person can gather other people and voice their opinions about the current state of political affairs (or any other subject for that matter) without other people preventing them from doing so. It is clear then that \(S_2\) is more extensive than \(S_1\); that is, \(S_1 \preceq S_2\). The converse is not true: there are rights people have under \(S_2\) that they don't under \(S_1\). Therefore, \(S_1\) is <i>not</i> more extensive than \(S_2\).</p>
+
+<p>Not any two systems of rights are comparable, though. There are systems such that neither is more extensive than the other. For example, let \(S_1\) be a universal system of rights that includes the “right to aid,” which is a claim-right that imposes a duty on bystanders to help someone who is injured or in physical danger. Let \(S_2\) be a universal system of rights that includes the “right to free speech,” understood as a claim-right. According to this claim-right others have a duty not to impede me to speak my mind. Under the system \(S_1\) a bystander witnessing a person drowning has the duty to offer help; under system \(S_2\), however, no such duty exists. Therefore, \(S_2\) is <i>not</i> more extensive than \(S_1\), ie \(S_1 \not\preceq S_2\). On the other hand, under \(S_2\) I have a duty not to censor or prevent you from voicing your political opinions, a duty I don't have under \(S_1\). That is, \(S_1\) is not more extensive than \(S_2\), ie \(S_2 \not \preceq S_1\).</p>
+
+<p>The binary relation of extensiveness, which defines when a system of rights is more extensive than another, has the following properties:</p>
+
+<p><b>(a)</b> <i>Reflexivity</i>. According to the given definition of extensiveness, a system of rights is always more extensive than itself, as given any right belonging to a system of rights \(S\), that right trivially belongs to \(S\). More formally, \(S\preceq S\) for any system of rights \(S\in \mathcal S\).</p>
+
+<p><b>(b)</b> <i>Antisymmetry</i>. Given two systems of rights \(S_1\) and \(S_2\), if \(S_1\) is more extensive than \(S_2\) and \(S_2\) is more extensive than \(S_1\), then \(S_1\) and \(S_2\) are the the same system of rights.</p>
+
+<p><b>(c)</b> <i>Transitivity</i>. If \(S_1\) is more extensive than \(S_2\), and \(S_2\) is more extensive than \(S_3\), then \(S_1\) is more extensive than \(S_3\), for any systems of rights \(S_1,S_2,S_3\in \mathcal S\).</p>
+
+<p>Therefore, the binary relation \(\preceq\) defines a partial order<sup class='footnote-number'><a href='#footnote-14'>14</a></sup> on the set of all universal systems of rights \(\mathcal S\).</p>
+
+<h3>Maximal systems of rights</h3>
+
+<p>When considering systems of rights persons can have, it is natural to view that persons should have the most extensive system of rights logically possible: a <i>maximum</i> system of rights, one that is more extensive than any other system of rights. As we have seen, however, the set of systems of rights \(\mathcal S\) is partially ordered but not totally ordered, as not any two systems of rights are comparable. Partially ordered sets do not, in general, have a maximum element. I will now show that this is indeed the case for \(\mathcal S\):</p>
+
+<p><b>Theorem 1.</b> The set of systems of rights \(\mathcal S\) does not contain a maximum system of rights.</p>
+
+<p><i>Proof</i>: Suppose that \(\mathcal S\) has a maximum element \(S_0\in \mathcal S\). Let \(S_1\) be a system of rights that recognises the claim-right not to get assaulted, which imposes a duty not to physically assault other people. Let \(S_2\) be a system that contains the Hohfeldian liberty to punch any person on the face.</p>
+
+<p>As \(S_0\) is a maximum element of \(\mathcal S\), we have \(S_1 \preceq S_0\). Therefore, under \(S_0\) any person \(P\) has a duty not to physically assault other people. Moreover, as \(S_0\) is a maximum element we must also have \(S_2\preceq S_0\); that is, each person \(P\) does <i>not</i> have a duty not to punch another person on the face. Given that punching someone on the face constitutes physical assault, we have reached a contradiction: it is not possible that \(S_1 \preceq S_0\) and \(S_2 \preceq S_0\). Hence, \(\mathcal S\) does not have a maximum element.</p>
+
+<p><p style="text-align: right;">&#x25A0;</p></p>
+
+<p>The idea that there doesn't exist a maximum system of rights was first observed by Onora O'Neill, who observed that:</p>
+
+<p><div class="quote">
+    [W]e have no reasons to suppose that there will always be such a dominant set of co-possible liberties, and  good reason to suppose that there will not be. For if we can instance any two liberties, to do \(y_1\) and \(y_2\), which are not co-possible for a set of persons, then we know that there can be no dominant set of co-possible liberties. For any set of liberties which dominates a set of liberties which includes the liberty to do \(y_1\) cannot dominate any set of liberties which includes the liberty to do \(y_2\).<sup class='footnote-number'><a href='#footnote-15'>15</a></sup>
+</div></p>
+
+<p>In the absence of a maximum system of rights, the best we can hope for is a <i>maximal</i> system of rights. A system of rights in \(\mathcal S\) is said to be maximal if there is no other system of rights that is more extensive. It turns out that such maximal systems of rights do exist. To prove this, Zorn's Lemma<sup class='footnote-number'><a href='#footnote-16'>16</a></sup> will be needed:</p>
+
+<p><b>Lemma (Zorn's Lemma).</b> Let \(\mathcal P\) be a partially ordered set such that any chain<sup class='footnote-number'><a href='#footnote-17'>17</a></sup> in \(\mathcal P\) has an upper bound in \(\mathcal P\). Then, \(\mathcal P\) has a maximal element.</p>
+
+<p><b>Theorem 2.</b> The set of systems of rights \(\mathcal S\) has a maximal system of rights.</p>
+
+<p><i>Proof.</i> Let \(\mathcal S'\subset \mathcal S\) be a chain in \(\mathcal S\). Define \(S_0\) as the system of all rights observed by some system of rights \(S\in \mathcal S'\). More formally, set</p>
+
+<p>
+\[S_0 = \{\mbox{right} \,:\,\exists S\in \mathcal S'\mbox{ such that } S \mbox{ admits that right}  \}.\]</p>
+
+<p>I will now show that \(S_0\) is an upper bound of \(\mathcal S'\) in \(\mathcal S\). To do so, two things need to be shown: that \(S_0\) is a universal system of rights, and that \(S \preceq S_0\) for any \(S\in \mathcal S'\).</p>
+
+<p>To prove that \(S_0\) is a universal system of rights, we need to show it satisfies conditions (C1), (C2) and (C3). To show that it satisfies (C1), take a \((P, Q, \varphi)\)-claim-right belonging to \(S_0\), and let \(P'\) be a person. We need to show that \(S_0\) admits the \((P', Q, \varphi)\)-claim-right. By definition of \(S_0\) there exists a system of rights \(S\in \mathcal S'\) that includes the \((P, Q, \varphi)\)-claim-right. Because \(S\) is a universal system of rights, it also includes the \((P', Q, \varphi)\)-claim-right. Therefore, by construction of \(S_0\), it follows that \(S_0\) also admits the \((P', Q, \varphi)\)-claim-right and hence it satisfies (C1). A similar argument also shows that \(S_0\) satisfies (C2) too.</p>
+
+<p>To show that \(S_0\) satisfies (C3), we need to show that given two rights \(R_1, R_2\) belonging to the system \(S_0\), both rights are logically compatible. By definition of \(S_0\), there exist two universal systems of rights \(S_1, S_2 \in \mathcal S'\) such that \(S_1\) admits the right \(R_1\) and \(S_2\) admits the  right \(R_2\). As \(\mathcal S'\) is a chain, it must be that \(S_1\preceq S_2\) or \(S_2 \preceq S_1\). Without loss of generality, we will assume that \(S_1 \preceq S_2\). It then follows that \(S_2\) admits the right \(R_1\). As \(S_2\) is a universal system of rights and it also admits the right \(R_2\), we conclude that both rights are logically compatible and therefore \(S_0\) satisfies (C3).</p>
+
+<p>The system of rights \(S_0\) is, therefore, universal and it belongs to \(\mathcal S\). </p>
+
+<p>Finally, the fact that \(S_0\) is an upper bound of \(\mathcal S'\) is clear from the definition of \(S_0\). Let \(S\in \mathcal S'\), and take any right \(R\). If the system of rights \(S\) admits the right \(R\), then by construction \(S_0\) also admits the right \(R\). Hence, \(S\preceq S_0\) and \(S_0\) is an upper bound of \(\mathcal S'\).</p>
+
+<p>We may now apply Zorn's Lemma to conclude that \(\mathcal S'\) has a maximal system of rights.</p>
+
+<p><p style="text-align: right;">&#x25A0;</p></p>
+
+<p>The “most extensive system of rights” is not a well-defined concept, as I have shown that no such maximum system of rights exists. However, maximal systems of rights do exist, as it has just been proved. I have used the plural <i>systems</i> rather than simply <i>system</i> because, as I will now show, there isn't a unique maximal system of rights. In fact, there is not even a <i>core</i> of rights that are common to all maximal systems of rights:</p>
+
+<p><b>Theorem 3.</b> There isn't a unique maximal universal system of rights. Moreover, there exist no rights that belong to all maximal systems of rights.</p>
+
+<p><i>Proof.</i> Let \(S_1, S_2\in \mathcal S\) such that \(S_1\) admits a right \(R_1\), and \(S_2\) admits a right \(R_2\), that are logically incompatible with each other. For example, \(S_1\) can be a system of rights that recognises the claim-right not to get assaulted, while \(S_2\) can be a system of rights that admits the Hohfeldian liberty to punch any person on the face. These two rights are logically incompatible.</p>
+
+<p>Define \(\mathcal S', \mathcal S' '\subset \mathcal S\) as follows:
+\[\mathcal S' := \{S\in \mathcal S \;:\; S_1 \preceq S\}\]
+and
+\[\mathcal S' ' := \{S\in \mathcal S \;:\; S_2 \preceq S\}.\]</p>
+
+<p>A proof analogous to Theorem 1 shows that \(\mathcal S'\) and \(\mathcal S' '\) each have maximal systems of rights \(S'\in \mathcal S'\) and \(S' '\in \mathcal S' '\), respectively. Notice that the argument shows that \(S'\) (resp. \(S' '\)) is maximal in \(\mathcal S'\) (resp. \(\mathcal S' '\)), not that it is maximal in \(\mathcal S\). I will now show that \(S'\) and \(S' '\) are also maximal in \(\mathcal S\).</p>
+
+<p>Suppose that \(S'\) is not maximal in \(\mathcal S\). This means there is a system of rights \(S\in \mathcal S\) that is more extensive than \(S'\). In particular, \(S\) is more extensive than \(S_1\), and therefore \(S\in \mathcal S'\). This shows that \(S'\) is not maximal in \(\mathcal S'\), leading to a contradiction. Hence, \(S'\) is a maximal system of rights in \(\mathcal S\). Analogously, \(S' '\) is a maximal system of rights in \(\mathcal S\) too.</p>
+
+<p>On the other hand, given that \(S_1 \preceq S'\) and \(S_2 \not \preceq S'\), whereas \(S_1 \not \preceq S' '\) and \(S_2 \preceq S' '\), it follows that \(S' \neq S' '\). Therefore, \(\mathcal S\) has multiple maximal systems of rights.</p>
+
+<p>A similar argument shows that there are no rights that belong to all maximal systems of rights. To show this, suppose \(R\) was such a right, belonging to all maximal systems of rights. Let \(R'\) be a right incompatible with \(R\). The right \(R'\) belongs to at least one maximal system of right \(S'\in \mathcal S\). By assumption, \(R\) also belongs to \(S'\), which leads to a contradiction because as \(R\) and \(R'\) are incompatible, the system \(S'\) would not be a logically compatible system of rights.</p>
+
+<p><p style="text-align: right;">&#x25A0;</p></p>
+
+<p>Any framework of moral philosophy that builds on the idea that persons have extensive systems of rights should account for the nonexistence of maximum systems of rights, and the non-uniqueness of maximal systems of rights. This includes Rawls's theory of justice and Cohen's conception of self-ownership. Their frameworks must either support the existence of multiple maximal universal systems of rights, or justify why a specific maximal system of rights is chosen over the others.</p>
+
+<h3>Implications of non-uniqueness of maximal systems of rights</h3>
+
+<h4>Rawls's principles of justice</h4>
+
+<p>Recall Rawls's first principle of justice, the principle of greatest equal liberty:</p>
+
+<p><div class="quote">
+    <i>First principle.</i> Each person is to have an equal right to the most extensive total system of equal basic liberties compatible with a similar system of liberty for all.<sup class='footnote-number'><a href='#footnote-18'>18</a></sup>
+</div></p>
+
+<p>As I have shown, the principle of greatest equal liberty, thus introduced, is not well-defined: there is not a single system of equal basic liberties that is more extensive than all other such systems of liberties. There are a myriad of them.</p>
+
+<p>The reason for this is that the relation of “extensiveness” (denoted by \(\preceq\) in this article) is not a total order: there are systems of rights that are not comparable to each other, in that none is more extensive than the other. As a result, we have multiple <i>maximal</i> systems of rights, rather than a single <i>maximum</i> system of rights. How can we reconcile this with Rawls's aim of establishing the rights and liberties that determine the “basic structure of society”<sup class='footnote-number'><a href='#footnote-19'>19</a></sup>? How can institutions “distribute fundamental rights and duties,” if the principles of justice cannot objectively choose one among many equally valid systems of liberties?<sup class='footnote-number'><a href='#footnote-20'>20</a></sup></p>
+
+<p>One way to fix this problem is by restricting the set of acceptable rights to a sufficient extent to make the “extensiveness” relationship a total order, where every pair of systems of rights is comparable. If we can achieve this, there would be a single maximal system of rights rather than multiple &mdash; which is what Rawls is looking for.</p>
+
+<p>This is, to an extent, an approach already followed by Rawls. In his <i>A Theory of Justice</i>, Rawls seeked to maximise systems of “equal basic liberties.” This is a deviation from the principle of greatest equal liberty he originally coined in <i>Justice As Fairness</i>, where he stated that each person has “an equal right to the most extensive liberty compatible with a like liberty for all.”<sup class='footnote-number'><a href='#footnote-21'>21</a></sup> The principle, as originally stated, was concerned with general, unconstrained liberties &mdash; provided they are “compatible with a like liberty for all.” In <i>A Theory of Justice</i>, however, he restricted the set of liberties to only what he called “basic liberties.”</p>
+
+<p>The shift from general liberties to basic liberties is a subtle but important one. Rawls doesn't define what basic liberties are, considering that “it is difficult, and perhaps impossible, to give a complete specification of these liberties independently from the particular circumstances &mdash; social, economic, and technological &mdash; of a given society.”<sup class='footnote-number'><a href='#footnote-22'>22</a></sup> Instead, he proceeds by enumerating several examples: “political liberty (the right to vote and to hold public office) and freedom of speech and assembly; liberty of conscience and freedom of thought; freedom of the person; [...] the right to hold personal property and freedom from arbitrary arrest and seizure.”<sup class='footnote-number'><a href='#footnote-23'>23</a></sup> He doesn't justify why these liberties are basic, whereas others such as “the right to own certain kinds of property (e.g., means of production) and freedom of contract”<sup class='footnote-number'><a href='#footnote-24'>24</a></sup> are not.</p>
+
+<p>The use of basic liberties, as introduced by Rawls, presents a couple of problems. First, they are given as a non-complete list and without further justification. As such, it is difficult to see why the rights and liberties enumerated deserve the special status Rawls gives to them. It also makes it difficult to establish whether a right, which intuitively might be considered to be basic, is indeed basic in Rawls's framework<sup class='footnote-number'><a href='#footnote-25'>25</a></sup>.</p>
+
+<p>Second, and most importantly for the present article, it does not solve the problem of non-uniqueness of maximal systems of rights. As discussed, restricting the set of rights to consider can make all systems of such rights comparable with each other. Rawls's restriction from the general liberties considered in <i>Justice As Fairness</i> to the basic liberties used in <i>A Theory of Justice</i>, however, does not achieve this. As Rawls himself remarks, his basic liberties may “conflict with other basic liberties.”<sup class='footnote-number'><a href='#footnote-26'>26</a></sup> As a consequence, there will be multiple maximal systems of rights that are not comparable nor compatible with each other<sup class='footnote-number'><a href='#footnote-27'>27</a></sup>.</p>
+
+<p>Alternatively, one might bite the bullet and accept that instead of a maximum system of rights, Rawls's principle of greatest equality will result in a number of maximal systems of rights. At this point, each of the maximal systems of rights is equally acceptable, and none is more valid than the rest. In order to favour one system of rights over the others, a second criterion other than extensiveness must be used.</p>
+
+<p>To illustrate how this might be achieved, consider the example of rules of order in debate, which was considered by Rawls<sup class='footnote-number'><a href='#footnote-28'>28</a></sup> and later by Hart<sup class='footnote-number'><a href='#footnote-29'>29</a></sup> in his critique of Rawls. Recognition of the liberty to speak our minds how and when we please during a debate leads to debaters speaking over each other, making the exercise of debating fruitless. As a result, debates have rules that restrict when and in what manner debaters might speak. This restriction reduces our liberty to speak when we please, but increases our right to communicate our views and make ourselves heard. Both liberties are at conflict with each other: we can have one or the other, but not both. Therefore, the systems of liberties that each of them yield are not comparable with each other, as neither is more extensive than the other. This is one of the cases where Rawls thought we would need to “balance one basic liberty against another.”<sup class='footnote-number'><a href='#footnote-30'>30</a></sup> To do so, we need to use something other than extensiveness.</p>
+
+<p>The approach followed by Rawls, and seconded by Hart, is teleological. Hart thought that “what such rules of debate help to secure is not a <i>greater</i> or more extensive liberty, but a liberty to do something which is more valuable for any rational person than the activities forbidden by the rules.”<sup class='footnote-number'><a href='#footnote-31'>31</a></sup> As Rawls recognised, in the absence of debating rules “freedom of speech loses its value.”<sup class='footnote-number'><a href='#footnote-32'>32</a></sup> Rawls and Hart considered this loss of value of greater significance than the value of having the liberty to speak when we please, and thus preferred the system of liberty that recognises debating rules over the one that doesn't. When the extensiveness of two systems of rights is not comparable, Rawls and Hart proceed to judge the value of the state of affairs that results from each system.</p>
+
+<p>In Rawls's framework, this can be achieved with his second principle of justice:</p>
+
+<p><div class="quote">
+    <i>Second principle.</i> Social and economic inequalities are to arranged so that they are both:</p>
+
+<p>        <b>(a)</b> to the greatest benefit of the least advantaged, [...] and</p>
+
+<p>        <b>(b)</b> attached to offices and positions open to all under conditions of fair equality of opportunity.<sup class='footnote-number'><a href='#footnote-33'>33</a></sup>
+</div></p>
+
+<p>Determining the system of liberties and rights that would be agreed to by persons in a Rawlsian original position would then consist of two steps. First, maximal systems of universally compatible equal basic liberties are found. Then, the second principle is used to decide among those maximal systems which one is most valuable. The order of the two steps is important. They are in “lexical order, and therefore the claims of liberty are to be satisfied first.”<sup class='footnote-number'><a href='#footnote-34'>34</a></sup> It is only after these maximal systems of rights are determined that the second principle can be used to decide among them.</p>
+
+<p>The non-uniqueness of maximal is, therefore, not fatal to Rawls's aims of establishing principles of justice. After a small amendment to his first principle to account for the existence of multiple maximal systems of liberty, his reasoning and results still hold and the resulting principles of justice are logically sound.</p>
+
+<p>
+<h4>Cohen's self-ownership</h4></p>
+
+<p>Cohen appeals to the libertarian tradition of placing great value on freedom and individual rights when he defined self-ownership as “the fullest right a person (logically) can have over herself, provided that each other person has such a right.”<sup class='footnote-number'><a href='#footnote-35'>35</a></sup> The intuition behind such a definition is clear: if more rights over oneself is preferred over less, it is natural to assert that self-ownership consists of the fullest, most extensive of such rights. When asserting this, however, Cohen runs into the same problem as Rawls with his principle of greatest equal liberty: there is no unique fullest system of rights, there are many of them.</p>
+
+<p>When addressing this issue of determinacy, Cohen thought that the condition of extensiveness together with universality would ensure that there would be one, and only one, system of rights that is the most extensive of all:</p>
+
+<p><div class="quote">
+    [W]hen one stipulates that <i>each</i> person has <i>full</i> private property in himself, then the constraints of universality and fullness combine to disqualify some sets of rights as possible denotations of `self-ownership', and, on the hypothesis proposed here, only one set of rights survives, with which self-ownership can then be (uniquely) identified.<sup class='footnote-number'><a href='#footnote-36'>36</a></sup>
+</div></p>
+
+<p>He does not show or justify why “only one set of rights survives,” and as shown in this paper, the opposite is very much the case &mdash; there are multiple, incompatible maximal systems of Cohenian rights.</p>
+
+<p>He does later concede that “there might [...] be a plurality of maximal rights-sets that compete for the title of `full self-ownership',” but he thinks that “they will not differ in ways that matter to the questions about distributive justice”<sup class='footnote-number'><a href='#footnote-37'>37</a></sup> which he was concerned with. This is because he thought that “in all cases of self-ownership, the requirements of universality and maximality will generate core rights that are indisputable.”<sup class='footnote-number'><a href='#footnote-38'>38</a></sup> In other words, he conceded that there might be certain peripheral rights that universality and maximal extensiveness alone could not settle. These rights, he continues, are irrelevant to his aims because the self-ownership rights he is concerned with all belong to a set of <i>core rights</i> that are common to all such universal, maximal systems of rights. He then proceeds to give examples of rights that are part of this core, such as the “right to income”<sup class='footnote-number'><a href='#footnote-39'>39</a></sup> and the “right not to supply product or service to anyone.”<sup class='footnote-number'><a href='#footnote-40'>40</a></sup></p>
+
+<p>If there is a core of rights, common to all maximal systems of rights, then Cohen's objective would be unaffected. He would be able to proceed by focusing on this core of self-ownership rights, analysing what rights are contained in this core, and what the implications of those rights are. As I showed in Theorem 3, however, there is no such core of rights. There isn't a single right that is common to all maximal systems.</p>
+
+<p>Cohen's view ultimately fails to establish a unique set of rights that constitutes self-ownership, as it becomes evident that there are multiple, incompatible maximal systems of Cohenian rights and no single right common to all. To address the challenge, Cohen could adopt a teleological approach similar to Rawls's approach discussed in the previous section. His conception of self-ownership yields multiple equally valid systems of rights; there are some that he clearly values over the others, as he viewed them to be the core of self-ownership rights. He could argue on teleological grounds that maximal systems of rights that respect those alleged core rights are preferred over those that don't, thus leading to the conception of self-ownership he favours. This argument, however, is missing from Cohen's work.</p>
+
+<h3>Bibliography</h3>
+
+<p><bib-author>G.A. Cohen</bib-author>, <i>Self-ownership, freedom and equality</i> (Cambridge University Press, 1995).</p>
+
+<p><bib-author>R.M. Hare</bib-author>, <i>Moral thinking: Its levels, method, and point</i> (Oxford: Clarendon Press, 1981).</p>
+
+<p><bib-author>H.L.A. Hart</bib-author>, <i>Rawls on Liberty and its Priority</i> (University of Chicago Law Review: Vol. 40: Iss. 3, Article 5, 1973).</p>
+
+<p><bib-author>W.N. Hohfeld</bib-author>, <i>Fundamental Legal Conceptions as Applied in Judicial Reasoning</i> (The Lawbook Exchange, 2010).</p>
+
+<p><bib-author>A.M. Honoré</bib-author>, <i>Ownership</i> (Oxford University Press, 1961).</p>
+
+<p><bib-author>O. O'Neill</bib-author>, <i>The most extensive liberty</i> (Proceedings of the Aristotelian Society, vol. 80, pp. 45-59, 1979).</p>
+
+<p><bib-author>J. Rawls</bib-author>, <i>Justice As Fairness</i> (The philosophical review, 67(2), 164-194, 1959).</p>
+
+<p><bib-author>J. Rawls</bib-author>, <i>A Theory of Justice: Revised Edition</i> (Oxford University Press, 1999).</p>
+
+<p><bib-author>J. Rawls</bib-author>, <i>Political Liberalism</i> (Columbia University Press, 2005).</p>
+
+<p><bib-author>S. Roman</bib-author>, <i>Lattices and ordered sets</i> (Springer Science & Business Media, 2008).</p>
+
+<p><bib-author>J. Waldron</bib-author>, <i>The Right to Private Property</i> (Clarendon Press, 1990).</p>
+
+<p><bib-author>M. Zorn</bib-author>, <i>A remark on method in transfinite algebra</i> (Bulletin of the American Mathematical Society, 1935).</p><h3>Notes</h3>
+<p id='footnote-1'><sup class='footnote-number'><a href='#footnote-1'>1</a></sup> J. Rawls, <i>A Theory of Justice</i>, p. 266.</p>
+<p id='footnote-2'><sup class='footnote-number'><a href='#footnote-2'>2</a></sup> G. A. Cohen, <i>Self-ownership, freedom and equality</i>, p. 213f.</p>
+<p id='footnote-3'><sup class='footnote-number'><a href='#footnote-3'>3</a></sup> Ibid., p. 215.</p>
+<p id='footnote-4'><sup class='footnote-number'><a href='#footnote-4'>4</a></sup> A. M. Honoré, <i>Ownership</i>.</p>
+<p id='footnote-5'><sup class='footnote-number'><a href='#footnote-5'>5</a></sup> J. Waldron, <i>The Right to Private Property</i>, p. 27.</p>
+<p id='footnote-6'><sup class='footnote-number'><a href='#footnote-6'>6</a></sup> These assumptions are implicitly made by Rawls in his use of “most” in “most extensive total system of [...] liberties” (J. Rawls, <i>A Theory of Justice</i>, p. 266). The term “most” assumes that such a system of liberties is more extensive than, and therefore comparable to, any other such systems of liberties. The term also assumes that there is only one system that is more extensive than any other: there cannot be multiple <i>most</i> extensive systems of liberties. Similarly, Cohen stated that it is possible to identify a set of rights \(S\) every person may have over themselves, such that “\(S\) confers fuller rights over herself than any other set [...] does.” (G. A. Cohen, <i>Self-ownership, freedom and equality</i>, p. 213f). He therefore claims that such a set of rights can be compared to any other logically possible, universal set of self-ownership rights. He also claimed that the universality and logical possibility constraints mean “only one set of rights survives, with which self-ownership can then be (uniquely) identified. (ibid., p. 213)”</p>
+<p id='footnote-7'><sup class='footnote-number'><a href='#footnote-7'>7</a></sup> However, the arguments and results from this article also apply to other alternative definitions of rights.</p>
+<p id='footnote-8'><sup class='footnote-number'><a href='#footnote-8'>8</a></sup> W.N. Hohfeld, <i>Fundamental Legal Conceptions as Applied in Judicial Reasoning</i>, pp. 36-50.</p>
+<p id='footnote-9'><sup class='footnote-number'><a href='#footnote-9'>9</a></sup> Hohfeld actually distinguished four types of rights. Aside from <i>liberties</i> and <i>claim-rights</i>, he also recognised <i>powers</i> and <i>immunities</i>. In this article I will only consider the first two.</p>
+<p id='footnote-10'><sup class='footnote-number'><a href='#footnote-10'>10</a></sup> J. Rawls, <i>A Theory of Justice</i>, p. 266.</p>
+<p id='footnote-11'><sup class='footnote-number'><a href='#footnote-11'>11</a></sup> R.M. Hare, <i>Moral thinking: Its levels, method, and point</i>, p. 25ff.</p>
+<p id='footnote-12'><sup class='footnote-number'><a href='#footnote-12'>12</a></sup> Ibid., p. 40.</p>
+<p id='footnote-13'><sup class='footnote-number'><a href='#footnote-13'>13</a></sup> Ibid., p. 26.</p>
+<p id='footnote-14'><sup class='footnote-number'><a href='#footnote-14'>14</a></sup> See, for example, S. Roman, <i>Lattices and ordered sets</i>, p. 2ff, for a formal definition of partially ordered sets and their properties.</p>
+<p id='footnote-15'><sup class='footnote-number'><a href='#footnote-15'>15</a></sup> O. O'Neill, <i>The most extensive liberty</i>, p. 52.</p>
+<p id='footnote-16'><sup class='footnote-number'><a href='#footnote-16'>16</a></sup> M. Zorn, <i>A remark on method in transfinite algebra</i>, p. 667.</p>
+<p id='footnote-17'><sup class='footnote-number'><a href='#footnote-17'>17</a></sup> A subset \(\mathcal P'\subset \mathcal P\) is said to be a chain if \(\mathcal P'\) is totally ordered with respect to the order relation inherited from \(\mathcal P\). See, for example, S. Roman, <i>Lattices and ordered sets</i>, pp. 6f.</p>
+<p id='footnote-18'><sup class='footnote-number'><a href='#footnote-18'>18</a></sup> J. Rawls, <i>A Theory of Justice</i>, p. 266.</p>
+<p id='footnote-19'><sup class='footnote-number'><a href='#footnote-19'>19</a></sup> Ibid., p. 6.</p>
+<p id='footnote-20'><sup class='footnote-number'><a href='#footnote-20'>20</a></sup> See Ibid., p. 6ff. for a discussion on the subject of justice.</p>
+<p id='footnote-21'><sup class='footnote-number'><a href='#footnote-21'>21</a></sup> J. Rawls, <i>Justice As Fairness</i>, p. 165.</p>
+<p id='footnote-22'><sup class='footnote-number'><a href='#footnote-22'>22</a></sup> J. Rawls, <i>A Theory of Justice</i>, p. 54.</p>
+<p id='footnote-23'><sup class='footnote-number'><a href='#footnote-23'>23</a></sup> Ibid., p. 53.</p>
+<p id='footnote-24'><sup class='footnote-number'><a href='#footnote-24'>24</a></sup> Ibid., p. 54.</p>
+<p id='footnote-25'><sup class='footnote-number'><a href='#footnote-25'>25</a></sup> See H.L.A. Hart, <i>Rawls on Liberty and Its Priority</i> for a critical view of Rawls's basic liberties and his principle of greatest equal liberty. For example, he points out in p. 541 that some “important forms of liberty” such as “sexual freedom and liberty to use alcohol or drugs” are not among the basic liberties listed by Rawls.</p>
+<p id='footnote-26'><sup class='footnote-number'><a href='#footnote-26'>26</a></sup> J. Rawls, <i>A Theory of Justice</i>, p. 54.</p>
+<p id='footnote-27'><sup class='footnote-number'><a href='#footnote-27'>27</a></sup> Rawls, in his subsequent work <i>Political Liberalism</i>, redefines his first principle again. After the amendment, it states that “each person has an equal right to a <i>fully adequate</i> scheme of equal basic liberties which is compatible with a similar scheme of liberties for all” (p. 291, italics mine). This further restricts the kind of liberties he considers. The amendment does not, however, get rid of conflicts among liberties.</p>
+<p id='footnote-28'><sup class='footnote-number'><a href='#footnote-28'>28</a></sup> J. Rawls, <i>A Theory of Justice</i>, p. 178.</p>
+<p id='footnote-29'><sup class='footnote-number'><a href='#footnote-29'>29</a></sup> H.L.A. Hart, <i>Rawls on Liberty and Its Priority</i>, p. 543.</p>
+<p id='footnote-30'><sup class='footnote-number'><a href='#footnote-30'>30</a></sup> J. Rawls, <i>A Theory of Justice</i>, p. 178.</p>
+<p id='footnote-31'><sup class='footnote-number'><a href='#footnote-31'>31</a></sup> H.L.A. Hart, <i>Rawls on Liberty and Its Priority</i>, p. 543.</p>
+<p id='footnote-32'><sup class='footnote-number'><a href='#footnote-32'>32</a></sup> J. Rawls, <i>A Theory of Justice</i>, p. 178.</p>
+<p id='footnote-33'><sup class='footnote-number'><a href='#footnote-33'>33</a></sup> Ibid., p. 266.</p>
+<p id='footnote-34'><sup class='footnote-number'><a href='#footnote-34'>34</a></sup> Ibid., p. 214.</p>
+<p id='footnote-35'><sup class='footnote-number'><a href='#footnote-35'>35</a></sup> G. A. Cohen, <i>Self-ownership, freedom and equality</i>, p. 213.</p>
+<p id='footnote-36'><sup class='footnote-number'><a href='#footnote-36'>36</a></sup> Ibid., p. 213.</p>
+<p id='footnote-37'><sup class='footnote-number'><a href='#footnote-37'>37</a></sup> Ibid., p. 215.</p>
+<p id='footnote-38'><sup class='footnote-number'><a href='#footnote-38'>38</a></sup> Ibid., p. 214.</p>
+<p id='footnote-39'><sup class='footnote-number'><a href='#footnote-39'>39</a></sup> Ibid., p. 216ff.</p>
+<p id='footnote-40'><sup class='footnote-number'><a href='#footnote-40'>40</a></sup> Ibid., p. 216.</p>
+
+            </section>
+        </main>
+
+        <footer>
+            <p>Alvaro Rivas</p>
+        </footer>
+    </body>
+</html>

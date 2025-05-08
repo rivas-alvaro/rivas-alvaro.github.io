@@ -304,6 +304,10 @@ sup.footnote-number .fn-tooltip {
     font-size: 0.75rem;
 }
 
+.footnote-number a {
+    font-weight: 750;
+}
+
 main a {
     font-weight: 500;
     text-decoration: none;

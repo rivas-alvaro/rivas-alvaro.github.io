@@ -102,6 +102,10 @@ footer {
 
 /* Essays */
 
+.preface {
+    font-style: italic;
+}
+
 .date {
     color: #999;
     text-transform: uppercase;
@@ -316,3 +320,40 @@ main a:hover {
 bib-author {
     font-variant: small-caps;
 }
+
+/* TOC */
+
+.toc {
+  font-family: sans-serif;
+  font-size: 0.9em;
+  border: 1px solid #a2a9b1;
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  width: fit-content;
+  max-width: 100%;
+  line-height: 1.4;
+}
+
+.toc p {
+  margin: 4px 0;
+}
+
+.toc a {
+  text-decoration: none;
+  color: #0645ad;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+}
+
+.toc3 {
+  font-weight: bold;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.toc4 {
+  padding-left: 20px;
+}
+

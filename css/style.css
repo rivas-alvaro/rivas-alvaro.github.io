@@ -240,20 +240,54 @@ sup.footnote-number .fn-tooltip {
 .book-item {
     display: flex;
     margin-bottom: 40px;
+    margin-top: 10px;
     gap: 20px;
 }
 
 .book-upcoming {
     margin: 20px auto;
+    display: inline;
 }
 
 .book-upcoming span {
-    background: #141414;
+    background: #2A9D8F;
     color: white;
     padding: 5px 10px;
     border-radius: 10px;
     cursor: default;
+    display: inline-flex;       /* match PDF button */
+    align-items: center;        /* center text vertically */
+    font-family: sans-serif;    /* match PDF button font */
+    font-size: 14px;            /* match size */
 }
+
+.book-pdf {
+    margin: 20px auto;
+    display: inline;
+}
+
+.book-pdf a {
+    text-decoration: none;
+}
+
+.book-pdf span {
+    background: #264653;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-flex;       /* consistent with book-upcoming */
+    align-items: center;
+    gap: 6px;
+    font-family: sans-serif;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.book-pdf span:hover {
+    background: #777; /* slightly lighter on hover */
+}
+
 
 .book-cover {
     flex-shrink: 0;
@@ -295,6 +329,7 @@ sup.footnote-number .fn-tooltip {
 .book-description {
     color: #555;
     margin: 0;
+    margin-top: -10px;
 }
 
 /* Footnote */

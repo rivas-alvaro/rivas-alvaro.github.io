@@ -263,7 +263,7 @@ sup.footnote-number .fn-tooltip {
 }
 .book-meta{display:flex; flex-direction:column; gap:4px; min-width:0;}
 .book-title-list{font-weight:700; font-size:1.25rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
-.book-note{color:var(--muted); font-size:.92rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.book-note{color:var(--muted); font-size:1rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-variant-caps: all-small-caps;}
 @media (min-width:900px){ .book-cover-list{width:108px; height:162px;} }
 @media (max-width:420px){ .book-title-list{white-space:normal;} }
 

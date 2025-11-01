@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <meta name="description" content="When two populations that speak mutually unintelligible languages come into sustained contact (often...">
+        <meta name="keywords" content="Alvaro Rivas, essays, philosophy, politics, linguistics">
+        <meta name="author" content="Alvaro Rivas">
+
+        <meta name="theme-color" content="#374151">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <meta property="og:title" content="Can language models develop a creole? - Alvaro Rivas">
+        <meta property="og:description" content="When two populations that speak mutually unintelligible languages come into sustained contact (often...">
+        <meta property="og:image" content="https://rivas-alvaro.github.io/assets/twitter.png">
+        <meta property="og:url" content="https://rivas-alvaro.github.io/">
+        <meta property="og:type" content="website">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Can language models develop a creole? - Alvaro Rivas">
+        <meta name="twitter:description" content="When two populations that speak mutually unintelligible languages come into sustained contact (often...">
+        <meta name="twitter:image" content="https://rivas-alvaro.github.io/assets/twitter.png">
+        <meta name="twitter:url" content="https://rivas-alvaro.github.io/">
+
+        <link rel="canonical" href="https://rivas-alvaro.github.io/">
+        
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DMNKZ93T2D"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DMNKZ93T2D');
+        </script>        
+
+        <link
+        rel="icon"
+        type="image/png"
+        href="/assets/favicon.png"
+        sizes="128x128"
+        />
+
+        <title>Can language models develop a creole? - Alvaro Rivas</title>
+        <link rel="stylesheet" href="/css/style.css">
+        
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">Alvaro Rivas</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="/" class="li-home">HOME</a></li>
+                    <li><a href="/books/" class="li-books">BOOKS</a></li>
+                    <li><a href="/essays" class="active">ESSAYS</a></li>
+                    <li><a href="/projects" class="li-projects">SIDE PROJECTS</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <h2 id="page-title">Can language models develop a creole?</h2>
+                
+                <p class="date">31 Oct 2025</p>
+
+<p>When two populations that speak mutually unintelligible languages come into sustained contact (often through trade, migration, or colonisation), pressures for communication can give rise to a <i>pidgin</i> language. A pidgin is a contact language that develops with a simplified grammar and a lexicon drawn largely from the languages in contact, typically from the socially dominant one. Crucially, a pidgin has no native speakers: it functions as an auxiliary language, used by members of each group as a second language to facilitate mutual understanding.<sup class='footnote-number'><a href='#footnote-1'>1</a></sup></p>
+
+<p>Eventually, a pidgin may develop into a fully fledged language with a full vocabulary and grammar, and become the first language of a community. When this happens, a creole language is formed.<sup class='footnote-number'><a href='#footnote-2'>2</a></sup> Examples include Haitian Creole (French-based), Jamaican Patois (English-based), Krio (English-based), and Nubi (Arabic-based).<sup class='footnote-number'><a href='#footnote-3'>3</a></sup> Creoles can emerge with remarkable speed, as intense contact situations create strong communicative pressures that favour rapid grammatical expansion and stabilisation.<sup class='footnote-number'><a href='#footnote-4'>4</a></sup></p>
+
+<p>Creoles emerge when speakers of different languages, faced with the necessity of communication, creatively assemble a new linguistic system. Language models, too, are adaptive systems that generate and internalise patterns from linguistic input.<sup class='footnote-number'><a href='#footnote-5'>5</a></sup> One may then ask: can two language models, trained on different languages, develop a creole language when they come into contact?</p>
+
+<p>When two language models trained on different languages are made to interact by completing each other's texts, they simulate the contact and interaction between communities of speakers of mutually unintelligible languages. If we then allow the models to learn from these exchanges over successive generations, we may observe processes analogous to pidginisation and creolisation: lexical borrowing, syntactic simplification, and eventual convergence towards a shared, rule-governed code. The experiment therefore offers a way to explore whether the pressures that drive linguistic unification in human communities can yield similar structural outcomes in artificial agents.</p>
+
+<p>To explore this, I propose the following experiment.</p>
+
+<h3>The basic experiment</h3>
+
+<p>Take two similar corpora, one in Language<sub>A</sub> and the other in Language<sub>B</sub>. Train two language models of identical architecture and size on each language, Model<sub>A</sub> and Model<sub>B</sub>. Each model internalises the grammar of its language, but is ignorant of that of the other language. The two models are then brought into contact through a process of inter-generational text exchange.</p>
+
+<p>In each generation, the models engage in a fixed number of episodes of interaction. In half of these, Model<sub>A</sub> generates an initial text, which Model<sub>B</sub> then completes. In the other half, the roles are reversed: Model<sub>B</sub> begins, and Model<sub>A</sub> continues. The resulting set of mixed-language texts forms a small corpus of interactions between Language<sub>A</sub> and Language<sub>B</sub>: the linguistic output of that generation.</p>
+
+<p>Once the mixed-language corpus is obtained, we fine-tune each model on it, simulating the process by which speakers of each language are first made aware of the other language and begin to learn from one another's utterances. Once the fine-tuning is completed, we obtain the next generation of models.</p>
+
+<p>We repeat the process over successive generations: each time we produce a mixed-language corpus of texts started by one of the models and completed by the other, and we fine-tune both on the resulting shared corpus. This iterative cycle of exchange and adaptation continues for multiple generations.</p>
+
+<p>Over time, each model starts to learn from the other's language and we may test whether the two models' languages converge and develop a stable, mutually intelligible code, a kind of artificial creole.</p>
+
+<h3>Evaluating the new contact language</h3>
+
+<p>After a sufficient number of generations, or throughout the evolution of the models, we might evaluate whether their outputs exhibit signs of convergence such as increased mutual intelligibility, lexical borrowing, grammatical regularisation, or the emergence of consistent structural patterns distinct from either original language.</p>
+
+<p>We can do this through two complementary lenses: computational convergence metrics and linguistic–typological diagnostics.</p>
+
+<h4>Computational convergence metrics</h4>
+
+<p><ul>
+    <li>
+        <b>Cross-perplexity:</b> Does Model<sub>A</sub> assign low perplexity to Model<sub>B</sub>'s outputs, and vice versa? Does cross-perplexity improve over generations?
+    </li>
+    
+    <li>
+        <b>Representation alignment:</b> Do the models map the same meanings to similar embeddings? Cosine similarity between sentence embeddings for paired meanings across agents.
+    </li></p>
+
+<p>    <li>
+        <b>Lexicon overlap:</b> Do the models converge on a shared vocabulary?
+    </li>
+</ul></p>
+
+<h4>Linguistic–typological diagnostics</h4>
+
+<p><ul>
+    <li>
+        <b>Word-order stabilisation:</b> Do both models settle on a dominant word order, e.g. SVO, SOV, etc?
+    </li></p>
+
+<p>    <li>
+        <b>Tense/mood/aspect marking:</b> Does a common, fixed ordering of tense/mood/aspect emerge?
+    </li></p>
+
+<p>    <li>
+        <b>Regularisation:</b> Since creoles typically exhibit fewer irregular forms,<sup class='footnote-number'><a href='#footnote-6'>6</a></sup> test whether the emergent code likewise regularises: track drops in irregular/exceptional types and paradigm entropy across generations.
+    </li></p>
+
+<p>    <li>
+        <b>Comparatives</b>: Creoles typically prefer periphrastic comparative marking with invariant degree particles (e.g. “more <i>X</i>” rather than “<i>X</i>-er”) rather than synthetic adjective inflection;<sup class='footnote-number'><a href='#footnote-7'>7</a></sup> track rising use and positional stability of these markers across generations.
+    </li></p>
+
+<p>    <li>
+        etc.
+    </li>
+</ul></p>
+
+<h3>Further improvements to the experiment</h3>
+
+<p>
+There are a few improvements or tweaks we can make to the basic experiment:</p>
+
+<p><ul>
+    <li>
+        In the basic experiment, two things pass to the next generation: the mixed texts and the adapted weights. Instead, after each generation we can re-initialise Model<sub>A</sub> and Model<sub>B</sub> from the original pre-trained versions (which constituted generation 0), and fine-tune them <i>only</i> on the previous generation's generated corpus. This way, the only thing that passes from one generation to the next is the data, not the adapted weights. 
+    </li></p>
+
+<p>    <li>
+        One reason why two populations might develop a common creole language is that they have a functional pressure to succeed in communicating with each other. In our basic experiment, this pressure is implemented via gradient descent for next-token prediction. Instead, we might wrap each generation in a cooperative game so that Model<sub>A</sub> and Model<sub>B</sub> must communicate with each other to achieve goals, rather than simply completing strings.<sup class='footnote-number'><a href='#footnote-8'>8</a></sup>
+    </li></p>
+
+<p>    <li>
+        Rather than having one-to-one interactions, we might have two populations of agents, one trained on Language<sub>A</sub> and the other on Language<sub>B</sub>. Larger, mixed populations might reduce idiosyncratic drifts and better approximate communal norms.
+    </li></p>
+
+<p>    <li>
+        It might be interesting to play with the tokeniser to see how different forms of segmentation affect linguistic convergence. A shared tokeniser could make it easier for the two models to borrow words and share subunits, encouraging rapid lexical blending, while separate tokenisers might preserve linguistic boundaries for longer, delaying or reducing convergence. We could also experiment with finer-grained tokenisation, such as character-level units, to test whether the models can develop shared structures even when no common word forms exist. Comparing these settings would help reveal how much of any observed "creolisation" depends on surface overlap versus deeper grammatical adaptation.
+    </li>
+</ul></p>
+
+<h3>Possible outcomes</h3>
+
+<p>I anticipate a few potential outcomes of this experiment.</p>
+
+<p>The simplest possibility is that there is a collapse, and the models fail to develop a consistent shared code. The models fail to communicate and understand each other, and exchanges degenerate into incoherent sequences. This is akin to two communities trying to communicate with each other, but failing to make themselves understood.</p>
+
+<p>Another possibility is that one of the languages may come to dominate, with the other gradually adapting to it. This would be reflected in the evaluation metrics proposed above: convergence would be asymmetric and cross-perplexity, lexical borrowing, and other metrics would be skewed towards one of the languages.</p>
+
+<p>Alternatively, the models might produce mixed-language sequences, alternating or blending lexical and grammatical material from both sources without regularisation. This resembles code-switching or the formation of a pidgin that remains a flexible contact variety rather than a fully stabilised system.</p>
+
+<p>However, it is also possible that under suitable conditions the interactions between the models could yield a new, stable linguistic system distinct from either parent language but drawing from both. The resulting code might exhibit typical features of creoles: reduced irregular morphology, analytic tense–mood–aspect marking, fixed word order, and lexical borrowing from both sources. This would constitute the strongest parallel to natural-language creolisation.</p>
+
+<p>I am not suggesting that this process faithfully reproduces how creoles emerge in human societies, nor that it captures the full sociolinguistic and cognitive realities of creolisation. Real-world creoles arise through complex histories of migration, power, and identity, which the proposed experiment does not capture. Nevertheless, the experiment remains linguistically interesting because it isolates, in a controlled and observable way, the structural dynamics that accompany language contact: borrowing, simplification, convergence, and the creation of new grammatical regularities. By observing how such processes unfold in artificial agents exposed to comparable pressures, we can gain insight into the general principles that govern how linguistic systems adapt and reorganise under contact, and thus illuminate, in abstract form, the mechanisms that make human language so remarkably self-organising.</p><h3>Notes</h3>
+<p id='footnote-1'><sup class='footnote-number'><a href='#footnote-1'>1</a></sup> J. Holm, <i>An introduction to pidgins and creoles</i> (Cambridge University Press, 2000).</p>
+<p id='footnote-2'><sup class='footnote-number'><a href='#footnote-2'>2</a></sup> Ibid.</p>
+<p id='footnote-3'><sup class='footnote-number'><a href='#footnote-3'>3</a></sup> S.M. Michaelis et al., <i>The Atlas of Pidgin and Creole Language Structures</i> (Oxford University Press, 2013).</p>
+<p id='footnote-4'><sup class='footnote-number'><a href='#footnote-4'>4</a></sup> S.G. Thomason and T. Kaufmann, <i>Language Contact, Creolization, and Genetic Linguistics</i> (University of California Press, 1992).</p>
+<p id='footnote-5'><sup class='footnote-number'><a href='#footnote-5'>5</a></sup> See for example S. Gururangan, “Don't Stop Pretraining: Adapt Language Models to Domains and Tasks” (<i>arXiv:2004.10964</i>, 2020).</p>
+<p id='footnote-6'><sup class='footnote-number'><a href='#footnote-6'>6</a></sup> J. Holm, <i>An introduction to pidgins and creoles</i> (Cambridge University Press, 2000).</p>
+<p id='footnote-7'><sup class='footnote-number'><a href='#footnote-7'>7</a></sup> Ibid.</p>
+<p id='footnote-8'><sup class='footnote-number'><a href='#footnote-8'>8</a></sup> L. Lewis, <i>Convention: A Philosophical Study</i> (John Wiley & Sons, 2002).</p>
+
+            </section>
+        </main>
+
+        <footer>
+            <p>Alvaro Rivas</p>
+        </footer>
+
+        <!-- Scroll up button -->
+        <button id="backToTopBtn" title="Go to top" aria-label="Back to top">
+          <svg viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 15 12 9 18 15"/>
+          </svg>
+        </button>
+
+        <script src="/js/scroll.js"></script>
+    
+    <script src="/js/endnotes.js"></script>
+    </body>
+            
+</html>

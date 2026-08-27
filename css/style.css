@@ -116,6 +116,14 @@ footer {
     text-transform: uppercase;
 }
 
+.keywords {
+    margin-top: 0.4rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #6b7280;
+    letter-spacing: 0.01em;
+}
+
 .quote {
     padding: 0 50px;
     max-width: 400px;

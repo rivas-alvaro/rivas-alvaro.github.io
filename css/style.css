@@ -65,10 +65,12 @@ nav ul {
 
     nav li:nth-child(4) {
         grid-column: 2 / span 2;
+        margin-right: 10px;
     }
 
     nav li:nth-child(5) {
         grid-column: 4 / span 2;
+        margin-left: 10px;
     }
 }
 

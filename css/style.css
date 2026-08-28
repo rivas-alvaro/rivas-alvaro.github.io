@@ -50,8 +50,25 @@ nav ul {
 }
 
 @media (max-width: 700px) {
-    nav ul{
-        gap: 30px;
+    nav ul {
+        display: grid;
+        grid-template-columns: repeat(6, max-content);
+        justify-content: center;
+        column-gap: 12px;
+        row-gap: 10px;
+    }
+
+    nav li {
+        grid-column: span 2;
+        white-space: nowrap;
+    }
+
+    nav li:nth-child(4) {
+        grid-column: 2 / span 2;
+    }
+
+    nav li:nth-child(5) {
+        grid-column: 4 / span 2;
     }
 }
 

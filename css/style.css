@@ -318,6 +318,37 @@ sup.footnote-number .fn-tooltip {
     font-size: 14px;            /* match size */
 }
 
+.book-philpapers {
+    margin: 20px auto;
+    display: inline;
+}
+
+.book-philpapers a {
+    text-decoration: none;
+}
+
+.book-philpapers span {
+    background: #1b57b3;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border-left: 4px solid #0aa34f;
+
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    font-family: sans-serif;
+    font-size: 14px;
+
+    transition: background 0.2s ease;
+}
+
+.book-philpapers span:hover {
+    background: #164a98;
+}
+
 .book-pdf {
     margin: 20px auto;
     display: inline;

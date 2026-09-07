@@ -95,6 +95,10 @@ section {
     margin-bottom: 60px;
 }
 
+p.pause {
+  margin: 2em 0;
+}
+
 h2 {
     font-weight: 400;
     border-bottom: 1px solid #eee;

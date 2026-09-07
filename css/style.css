@@ -176,6 +176,43 @@ footer {
     color: #666;
 }
 
+/* Essays filter */
+
+.essay-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin: 0 0 30px;
+}
+
+.essay-filter {
+    appearance: none;
+    background: none;
+    border: none;
+    border-bottom: 1px solid transparent;
+    padding: 2px 0;
+    color: #999;
+    font: inherit;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.essay-filter:hover {
+    color: #555;
+}
+
+.essay-filter.active {
+    color: #333;
+    border-bottom-color: #333;
+}
+
+.essay-item[hidden] {
+    display: none;
+}
+
 /* Footnote box */
 
 sup.footnote-number {
